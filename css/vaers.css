@@ -1,0 +1,24 @@
+body {
+    box-sizing: border-box;
+}
+
+.main-content {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1000px;
+    background-color: rgb(218, 218, 218);
+}
+
+#vaers-title {
+    width: auto;
+    padding: 5px 10px;
+}
+
+.form-title {
+    padding: 5px 10px;
+    background-color: ;
+}
+
+
+
