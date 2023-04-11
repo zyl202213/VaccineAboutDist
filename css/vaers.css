@@ -7,7 +7,6 @@ body {
     margin: 0 auto;
     height: 100%;
     max-width: 1000px;
-    background-color: rgb(218, 218, 218);
 }
 
 #vaers-title {
@@ -15,10 +14,121 @@ body {
     padding: 5px 10px;
 }
 
-.form-title {
-    padding: 5px 10px;
-    background-color: ;
+.vaers-search-form {
+    border: 2px solid lightblue;
+    margin: 20px 0;
 }
 
+.form-title {
+    padding: 5px 10px;
+    background-color: skyblue;
+    color: white;
+    font-weight: bold;
+    /* 字体大小 */
+    font-size: 18px;
+}
 
+.form-item {
+    margin: 0 20px;
+}
+
+.search-box {
+    margin: 10px 20px;
+    border: 3px solid black;
+    width: min-content;
+    border-radius: 5px;
+    height: 200px;
+    box-sizing: content-box;
+}
+
+.search-keyword-box {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    /* 添加下邊框 */
+    border: 1px solid black;
+    height: 20%;
+}
+
+.search-input {
+    width: 80%;
+    border-style: none;
+}
+
+.search-button {
+    width: 20%;
+}
+
+.search-result-box {
+    height: 80%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.search-result-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: auto;
+}
+
+.search-result-item {
+    padding: 2px 10px;
+}
+
+.search-result-item:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.search-result-item.active {
+    background-color: rgb(180, 180, 180);
+}
+
+.vaers-submit {
+    width: 100%;
+    /* 子元素居中 */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#vaers-submit-button {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vaers-search-result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.vaers-result-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vaers-result-table th,
+.vaers-result-table td {
+    border: 1px solid black;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.vaers-result-table th {
+    background-color: #e9e9e9;
+    font-weight: bold;
+    /* 字体大小 */
+    font-size: 18px;
+}
+
+.vaers-pagination-box {
+    width: min-content;
+    margin: 10px auto;
+}
+
+.spinner {
+    margin: 20px auto;
+}
 
