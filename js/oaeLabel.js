@@ -1,5 +1,5 @@
 
-$(function(){
+$(function () {
     // 获取页面高度
     var height = document.documentElement.clientHeight
     $(".content-box").css("min-height", height)
@@ -10,30 +10,17 @@ $(function(){
     $(".result-item-box").hide()
 
     // 绑定点击事件
-    $("#search-keyword-btn").click(function(){
+    // keyword搜索框Button点击事件
+    $("#search-keyword-btn").click(function () {
         // 滚动到页面顶部
         $("html,body").animate({
             scrollTop: 0
         })
-        var keyword = $("#search-keyword").val()
-        // 显示loading
-        $(".loading-box").show()
-        $(".search-result-box").hide()
-        $(".result-item-box").hide()
-        loadOAETermList(
-            onSuccess = function(data){
-                // 隐藏loading, 显示搜索结果
-                $(".loading-box").hide()
-                $(".search-result-box").show()
-                $(".result-item-box").hide()
-                // 渲染搜索结果
-                renderOAETermList(data.data.oaeTerms)
-            },
-            keyword = keyword,
-        )
+        startSearchOAETermList()
     })
 
-    $(".search-result-list").on('click', 'li',function(){
+    // 搜索结果点击事件
+    $(".search-result-list").on('click', 'li', function () {
         // 滚动到页面顶部
         $("html,body").animate({
             scrollTop: 0
@@ -44,7 +31,7 @@ $(function(){
         $(".search-result-box").hide()
         $(".result-item-box").hide()
         loadOAETerm(
-            onSuccess = function(data){
+            onSuccess = function (data) {
                 // 隐藏loading, 显示搜索结果
                 $(".loading-box").hide()
                 $(".search-result-box").hide()
@@ -54,7 +41,7 @@ $(function(){
 
                 // 加载OAETerm的父类
                 loadOAETermParents(
-                    onSuccess = function(parentData){
+                    onSuccess = function (parentData) {
                         // 渲染搜索结果
                         renderOAETermParents(parentData.data)
                     },
@@ -64,7 +51,33 @@ $(function(){
             IRI = iri
         )
     })
+
+    // 搜索框监听回车
+    $("#search-keyword").keypress(function (e) {
+        if (even.which == 13) {
+            startSearchOAETermList()
+        }
+    })
 })
+
+function startSearchOAETermList() {
+    var keyword = $("#search-keyword").val()
+    // 显示loading
+    $(".loading-box").show()
+    $(".search-result-box").hide()
+    $(".result-item-box").hide()
+    loadOAETermList(
+        onSuccess = function (data) {
+            // 隐藏loading, 显示搜索结果
+            $(".loading-box").hide()
+            $(".search-result-box").show()
+            $(".result-item-box").hide()
+            // 渲染搜索结果
+            renderOAETermList(data.data.oaeTerms)
+        },
+        keyword = keyword,
+    )
+}
 
 // 渲染搜素结果
 function renderOAETerm(term) {
@@ -73,10 +86,10 @@ function renderOAETerm(term) {
     $(".oae-definition-value").text(term.definition)
 }
 
-function renderOAETermList(terms){
+function renderOAETermList(terms) {
     $(".search-result-list").empty()
     // 渲染搜索结果
-    for(var i = 0; i < terms.length; i++){
+    for (var i = 0; i < terms.length; i++) {
         var item = terms[i]
         // 渲染搜索结果
         var html = `
@@ -86,26 +99,28 @@ function renderOAETermList(terms){
     }
 }
 
-function renderOAETermParents(terms){
+function renderOAETermParents(terms) {
     $(".oae-hierarchy-box").empty()
     var html = getOAETermParentsHtml(terms, 0)
     console.log(html)
     $(".oae-hierarchy-box").append(html)
 }
 
-function getOAETermParentsHtml(terms, i){
-    if (terms[i] == undefined){
+function getOAETermParentsHtml(terms, i) {
+    if (terms[i] == undefined) {
         return ""
     }
     console.log(i)
     console.log(html)
     var html = `<ul><li IRI="${terms[i].termIRI}">+${terms[i].termLabel}</li>`
-    html += getOAETermParentsHtml(terms, i+1)
+    html += getOAETermParentsHtml(terms, i + 1)
     return html + `</ul>`
 }
 
+
+// 加载数据
 // 加载OAETerm
-function loadOAETerm(onSuccess, IRI){
+function loadOAETerm(onSuccess, IRI) {
     // 初始化参数
     var params = {
         IRI: IRI
@@ -115,18 +130,18 @@ function loadOAETerm(onSuccess, IRI){
         type: "get",
         data: params,
         dataType: "json",
-        success: function(data){
+        success: function (data) {
             console.log("数据加载成功")
             onSuccess(data)
         },
-        error: function(){
+        error: function () {
             console.log("数据加载失败")
         }
     })
 }
 
 // 加载OAETerm列表
-function loadOAETermList(onSuccess, keyword, page=1, pageSize=20){
+function loadOAETermList(onSuccess, keyword, page = 1, pageSize = 20) {
     // 初始化参数
     var params = {
         label: keyword,
@@ -138,18 +153,18 @@ function loadOAETermList(onSuccess, keyword, page=1, pageSize=20){
         type: "get",
         data: params,
         dataType: "json",
-        success: function(data){
+        success: function (data) {
             console.log("数据加载成功")
             onSuccess(data)
         },
-        error: function(){
+        error: function () {
             console.log("数据加载失败")
         }
     })
 }
 
 // 加载OAETerm的父类
-function loadOAETermParents(onSuccess, IRI){
+function loadOAETermParents(onSuccess, IRI) {
     // 初始化参数
     var params = {
         IRI: IRI
@@ -159,11 +174,11 @@ function loadOAETermParents(onSuccess, IRI){
         type: "get",
         data: params,
         dataType: "json",
-        success: function(data){
+        success: function (data) {
             console.log("数据加载成功")
             onSuccess(data)
         },
-        error: function(){
+        error: function () {
             console.log("数据加载失败")
         }
     })
