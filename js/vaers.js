@@ -17,6 +17,12 @@ $(function () {
     // submit-button点击事件
     initSubmitButtionOnClickListener()
 
+    // 初始化vaccine-input的回车监听
+    initVaccineInputOnKeyPress()
+
+    // 初始化symptom-input的回车监听
+    initSymptomInputOnKeyPress()
+
     // vaers-search-result初始化
     // 第一次加载时隐藏
     $('.vaers-search-result').hide()
@@ -105,6 +111,36 @@ function initSubmitButtionOnClickListener() {
             vaccineId = vaccineId,
             symptomId = symptomId
         )
+    })
+}
+
+// 初始化vaccine-input的回车监听
+function initVaccineInputOnKeyPress() {
+    $("#vaccine-input").keypress(function (e) {
+        if (even.which == 13) {
+            var content = $('#vaccine-input').val()
+            loadVaccineResult(
+                onSuccess = function (data) {
+                    handleVaccineResult(data.data.vaccines)
+                },
+                keyword = content
+            )
+        }
+    })
+}
+
+// 初始化symptom-input的回车监听
+function initSymptomInputOnKeyPress() {
+    $("#symptom-input").keypress(function (e) {
+        if (even.which == 13) {
+            var content = $('#symptom-input').val()
+            loadSymptomResult(
+                onSuccess = function (data) {
+                    handleSymptomResult(data.data.symptoms)
+                },
+                keyword = content
+            )
+        }
     })
 }
 
