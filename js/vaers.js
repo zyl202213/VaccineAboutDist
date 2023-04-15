@@ -1,4 +1,6 @@
-
+// 当前检索的目标vaccine，symptom的id
+var vaccineId
+var symptomId
 // 页面初始化
 $(function () {
     initVaccineResultList()
@@ -6,63 +8,20 @@ $(function () {
 
     // 初始化点击事件
     // search-result-item点击事件
-    var vaccineId
-    var symptomId
-    $('#vaccine-result-list').on('click', 'li', function () {
-        var id = $(this).attr('id')
-        if ($(this).hasClass("active")) {
-            // 如果已经选中，则取消选中
-            $(this).removeClass("active")
-            vaccineId = undefined
-        } else {
-            // 如果未选中，则选中
-            $(this).addClass("active").siblings().removeClass("active")
-            vaccineId = id
-        }
-    })
-    $('#symptom-result-list').on('click', 'li', function () {
-        var id = $(this).attr('id')
-        if ($(this).hasClass("active")) {
-            // 如果已经选中，则取消选中
-            $(this).removeClass("active")
-            symptomId = undefined
-        } else {
-            // 如果未选中，则选中
-            $(this).addClass("active").siblings().removeClass("active")
-            symptomId = id
-        }
-    })
+    initSearchResultItemOnClickListener()
+
     // vaccine-search点击事件
-    $('#vaccine-search').on('click', function () {
-        var content = $('#vaccine-input').val()
-        loadVaccineResult(
-            onSuccess = function (data) {
-                handleVaccineResult(data.data.vaccines)
-            },
-            keyword = content
-        )
-    })
+    initVaccineSearchOnClickListener()
     // symptom-search点击事件
-    $('#symptom-search').on('click', function () {
-        var content = $('#symptom-input').val()
-        loadSymptomResult(
-            onSuccess = function (data) {
-                handleSymptomResult(data.data.symptoms)
-            },
-            keyword = content
-        )
-    })
+    initSymptomSearchOnClickListener()
     // submit-button点击事件
-    $('#vaers-submit-button').on('click', function () {
-        loadVaersResult(
-            onSuccess = function (data) {
-                console.log(data)
-                handleVaersResult(data.data.results)
-            },
-            vaccineId = vaccineId,
-            symptomId = symptomId
-        )
-    })
+    initSubmitButtionOnClickListener()
+
+    // 初始化vaccine-input的回车监听
+    initVaccineInputOnKeyPress()
+
+    // 初始化symptom-input的回车监听
+    initSymptomInputOnKeyPress()
 
     // vaers-search-result初始化
     // 第一次加载时隐藏
@@ -87,6 +46,103 @@ function initSymptomResultList() {
     )
 }
 
+// 初始化search-result-item点击事件
+function initSearchResultItemOnClickListener() {
+    $('#vaccine-result-list').on('click', 'li', function () {
+        var id = $(this).attr('id')
+        if ($(this).hasClass("active")) {
+            // 如果已经选中，则取消选中
+            $(this).removeClass("active")
+            vaccineId = undefined
+        } else {
+            // 如果未选中，则选中
+            $(this).addClass("active").siblings().removeClass("active")
+            vaccineId = id
+        }
+    })
+    $('#symptom-result-list').on('click', 'li', function () {
+        var id = $(this).attr('id')
+        if ($(this).hasClass("active")) {
+            // 如果已经选中，则取消选中
+            $(this).removeClass("active")
+            symptomId = undefined
+        } else {
+            // 如果未选中，则选中
+            $(this).addClass("active").siblings().removeClass("active")
+            symptomId = id
+        }
+    })
+}
+
+// 初始化vaccine-search点击事件
+function initVaccineSearchOnClickListener() {
+    $('#vaccine-search').on('click', function () {
+        var content = $('#vaccine-input').val()
+        loadVaccineResult(
+            onSuccess = function (data) {
+                handleVaccineResult(data.data.vaccines)
+            },
+            keyword = content
+        )
+    })
+}
+
+// 初始化symptom-search点击事件
+function initSymptomSearchOnClickListener() {
+    $('#symptom-search').on('click', function () {
+        var content = $('#symptom-input').val()
+        loadSymptomResult(
+            onSuccess = function (data) {
+                handleSymptomResult(data.data.symptoms)
+            },
+            keyword = content
+        )
+    })
+}
+
+// 初始化submit-button点击事件
+function initSubmitButtionOnClickListener() {
+    $('#vaers-submit-button').on('click', function () {
+        loadVaersResult(
+            onSuccess = function (data) {
+                console.log(data)
+                handleVaersResult(data.data.results)
+            },
+            vaccineId = vaccineId,
+            symptomId = symptomId
+        )
+    })
+}
+
+// 初始化vaccine-input的回车监听
+function initVaccineInputOnKeyPress() {
+    $("#vaccine-input").keypress(function (e) {
+        if (e.which == 13) {
+            var content = $('#vaccine-input').val()
+            loadVaccineResult(
+                onSuccess = function (data) {
+                    handleVaccineResult(data.data.vaccines)
+                },
+                keyword = content
+            )
+        }
+    })
+}
+
+// 初始化symptom-input的回车监听
+function initSymptomInputOnKeyPress() {
+    $("#symptom-input").keypress(function (e) {
+        if (e.which == 13) {
+            var content = $('#symptom-input').val()
+            loadSymptomResult(
+                onSuccess = function (data) {
+                    handleSymptomResult(data.data.symptoms)
+                },
+                keyword = content
+            )
+        }
+    })
+}
 
 // 处理VaccineResult数据
 function handleVaccineResult(vaccines, isAppend = false) {
