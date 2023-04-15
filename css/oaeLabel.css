@@ -1,0 +1,76 @@
+body{
+    background-color: lightgray;
+}
+
+.main-content {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: white;
+}
+
+.page-title h1 {
+    text-align: center;
+}
+
+.search-box {
+    padding: 5px 20px;
+}
+
+#search-keyword-label {
+    /* 字体加粗 */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#search-keyword {
+    height: 25px;
+}
+
+.loading-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: inherit;
+}
+
+.search-result-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.search-result-list li {
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    list-style: none;
+    cursor: pointer;
+    margin: 10px 20px;
+}
+
+.result-item {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 8px 13px;
+}
+
+.oae-hierarchy-box {
+    overflow-x: auto;
+    border: 1px solid gray;
+    background-color: lightgray;
+}
+
+.oae-hierarchy-box ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.oae-hierarchy-box li {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+
