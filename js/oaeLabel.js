@@ -54,7 +54,7 @@ $(function () {
 
     // 搜索框监听回车
     $("#search-keyword").keypress(function (e) {
-        if (even.which == 13) {
+        if (e.which == 13) {
             startSearchOAETermList()
         }
     })

@@ -117,7 +117,7 @@ function initSubmitButtionOnClickListener() {
 // 初始化vaccine-input的回车监听
 function initVaccineInputOnKeyPress() {
     $("#vaccine-input").keypress(function (e) {
-        if (even.which == 13) {
+        if (e.which == 13) {
             var content = $('#vaccine-input').val()
             loadVaccineResult(
                 onSuccess = function (data) {
@@ -132,7 +132,7 @@ function initVaccineInputOnKeyPress() {
 // 初始化symptom-input的回车监听
 function initSymptomInputOnKeyPress() {
     $("#symptom-input").keypress(function (e) {
-        if (even.which == 13) {
+        if (e.which == 13) {
             var content = $('#symptom-input').val()
             loadSymptomResult(
                 onSuccess = function (data) {
