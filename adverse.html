@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>AdverseReactionReport</title>
     <link rel="stylesheet" type="text/css" href="./css/adverse.css">
-    <script src="myscript.js"></script>
+
 
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="stylesheet" type="text/css" href="./css/common.css">
@@ -37,162 +37,242 @@
     </nav>
 
 
-    
+
 
     <div class="a1">
-        
 
-        <h2 class="a6">Report an Adverse Event - Patient Information</h2>
+
+        <h2 class="a6">不良反应报告-患者信息</h2>
 
         <div class="a2">
-            <form action="">
-                <p class="a0">Note: Fields marked with an * are essential and should be completed.</p>
+            <p class="a0">注：标有*的字段是必不可少的，必须填写。</p>
 
-                <label for="code">编码</label>
-                <input type="text" id="code" name="code" placeholder="你的编码..">
+            <label for="code">编码</label>
+            <input type="text" id="code" name="code1" placeholder="你的编码..">
 
-                <label for="name">姓名</label>
-                <input type="text" id="name" name="name" placeholder="你的姓名..">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name1" placeholder="你的姓名..">
 
-                <div id="sex">性别
-                    <input type="radio" name="sex" value="male" class="adverse-event-sex">男
-                    <input type="radio" name="sex" value="female" class="adverse-event-sex">女
-                </div>
+            <div id="sex">性别
+                <input id="male" type="radio" name="sex" value="male" class="adverse-event-sex">男
+                <input id="female" type="radio" name="sex" value="female" class="adverse-event-sex">女
+            </div>
 
-                <div >出生日期  
-                    <input type="text" id="date of birth" name="date of birth" placeholder="你的出生日期..">
-                </div>
+            <div>出生日期
+                <input type="date" id="birth" name="date of birth" placeholder="你的出生日期..">
+            </div>
 
-                <label for="Phone">联系电话</label>
-                <input type="text" id="Phone" name="Phone" placeholder="你的电话..">
+            <label for="Phone">联系电话</label>
+            <input type="text" id="Phone" name="Phone1" placeholder="你的电话..">
 
-                <label for="country">国家</label>
-                <select id="country" name="country">
-                    <option value="australia">中国</option>
-                    <option value="canada">美国</option>
-                    <option value="usa">日本</option>
-                </select>
+            <label for="country">国家</label>
+            <select id="country" name="country1">
+                <option value="australia">中国</option>
+                <option value="canada">美国</option>
+                <option value="usa">日本</option>
+            </select>
 
-                <label for="lcity">城市</label>
-                <select id="lcity" name="city">
-                    <option value="重庆">重庆</option>
-                    <option value="北京">北京</option>
-                    <option value="上海">上海</option>
-                </select>
-
-
-                <label for="lStreet address">现住址</label>
-                <input type="text" id="lStreet address" name="Street address" placeholder="你的当前住址..">
-
-                <div>不良反应发生日期
-                    
-                <input type="text" id="Date adverse event started" name="Date adverse event started"
-                    placeholder="不良反应发生日期..">
-                </div>
-
-        
-                <p>*不良反应描述</p>
-                <textarea id="adverse-event-description"></textarea>
-
-                <label for="1Treatment unit">就诊单位</label>
-                <input type="text" id="1Treatment unit" name="Treatment unit" placeholder="就诊单位..">
-
-                <label for="1rapporteur">报告人</label>
-                <input type="text" id="1rapporteur" name="rapporteur" placeholder="报告人..">
-
-                <label for="1rapporteurPhone">报告人联系电话</label>
-                <input type="text" id="1rapporteurPhone" name="rapporteurPhone" placeholder="报告人的电话..">
-
-                <label for="1rapporteurAddress">报告单位</label>
-                <input type="text" id="1rapporteurAddress" name="rapporteurAddress" placeholder="报告单位..">
-
-                <div>疫苗接种情况<br>
-                    <table border="1" class="table01">
-                        <tbody>
-                            <caption>可疑疫苗接种情况(按最可疑的疫苗顺序填写)</caption>
-                            <tr>
-                                <td></td>
-                                <td>选择疫苗</td>
-                                <td>生产企业</td>
-                                <td>接种日期</td>
-                                <td>接种剂次</td>
-                                <td>接种途径</td>
-                                <td>接种部位</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                                <td><input></td>
-                            </tr>
-                        </tbody>
+            <label for="lcity">城市</label>
+            <select id="lcity" name="city">
+                <option value="重庆">重庆</option>
+                <option value="北京">北京</option>
+                <option value="上海">上海</option>
+            </select>
 
 
-                    </table>
+            <label for="address">现住址</label>
+            <input type="text" id="address" name="Street address" placeholder="你的当前住址..">
 
-                    <input type="submit" value="Submit" id="adverse-event-submit-btn">
-            </form>
-        </div>
-    </div>
+            <div>不良反应发生日期
 
-    <div class="search-result">
-
-    </div>
+                <input type="date" id="onsetDate" name="onsetDate1" placeholder="不良反应发生日期..">
+            </div>
 
 
-    <!-- Footer-->
-    <footer class="footer bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#!">About</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Contact</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">&copy; VaccineAbout 2023. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                        </li>
-                        <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                        </li>
-                    </ul>
-                </div>
+            <p>*不良反应描述</p>
+            <textarea id="adverse-event-description"></textarea>
+
+            <label for="treatmentDepartment">就诊单位</label>
+            <input type="text" id="treatmentDepartment" name="Treatment unit" placeholder="就诊单位..">
+
+            <label for="rapporteur">报告人</label>
+            <input type="text" id="rapporteur" name="1rapporteur" placeholder="报告人..">
+
+            <label for="rapporteurPhone">报告人联系电话</label>
+            <input type="text" id="rapporteurPhone" name="1rapporteurPhone" placeholder="报告人的电话..">
+
+            <label for="rapporteurAddress">报告单位</label>
+            <input type="text" id="rapporteurAddress" name="1rapporteurAddress" placeholder="报告单位..">
+
+            <div>疫苗接种情况<br>
+                <table class="table01">
+                    <thead>
+                        <caption>可疑疫苗接种情况(按最可疑的疫苗顺序填写)</caption>
+                        <tr>
+                            <td>选择疫苗</td>
+                            <td>接种日期</td>
+                            <td>接种剂次</td>
+                            <td>接种途径</td>
+                            <td>接种部位</td>
+                        </tr>
+                    </thead>
+                    <tbody id="adverse-vaccine-table">
+                        <tr>
+                            <td>
+                                <div class="vaccine-search-box" id="1">点击查询疫苗</div>
+                            </td>
+                            <td><input class="vaccinate-date" type="date"></td>
+                            <td>
+                                <select id="Inoculation-times" name="Inoculation-times">
+                                    <option value="null"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                            <td><label for="Vaccination-route"></label>
+                                <select id="Vaccination-route" name="Vaccination-route">
+                                    <option value="null"></option>
+                                    <option value="1">口服</option>
+                                    <option value="2">肌内注射</option>
+                                    <option value="3">皮下注射</option>
+                                    <option value="4">皮内注射</option>
+
+                                </select>
+                            </td>
+                            <td><label for="inoculation-site"></label>
+                                <select id="inoculation-site" name="inoculation-site">
+                                    <option value="null"></option>
+                                    <option value="1">上臂外侧三角肌</option>
+                                    <option value="2">大腿前外侧中部肌肉</option>
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="vaccine-search-box" id="2">点击查询疫苗</div></td>
+
+                            <td><input type="date"></td>
+                            <td><label for="Inoculation-times"></label>
+                                <select id="Inoculation-times" name="Inoculation-times">
+                                    <option value="null"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                            <td><label for="Vaccination-route"></label>
+                                <select id="Vaccination-route" name="Vaccination-route">
+                                    <option value="null"></option>
+                                    <option value="1">口服</option>
+                                    <option value="2">肌内注射</option>
+                                    <option value="3">皮下注射</option>
+                                    <option value="4">皮内注射</option>
+
+                                </select>
+                            </td>
+                            <td><label for="inoculation-site"></label>
+                                <select id="inoculation-site" name="inoculation-site">
+                                    <option value="null"></option>
+                                    <option value="1">上臂外侧三角肌</option>
+                                    <option value="2">大腿前外侧中部肌肉</option>
+
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="vaccine-search-box" id="3">点击查询疫苗</div></td>
+
+                            <td><input type="date"></td>
+                            <td><label for="Inoculation-times"></label>
+                                <select id="Inoculation-times" name="Inoculation-times">
+                                    <option value="null"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                            <td><label for="Vaccination-route"></label>
+                                <select id="Vaccination-route" name="Vaccination-route">
+                                    <option value="null"></option>
+                                    <option value="1">口服</option>
+                                    <option value="2">肌内注射</option>
+                                    <option value="3">皮下注射</option>
+                                    <option value="4">皮内注射</option>
+
+                                </select>
+                            </td>
+                            <td><label for="inoculation-site"></label>
+                                <select id="inoculation-site" name="inoculation-site">
+                                    <option value="null"></option>
+                                    <option value="1">上臂外侧三角肌</option>
+                                    <option value="2">大腿前外侧中部肌肉</option>
+
+
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+
+                <button id="adverse-event-submit-btn">Submit</button>
+
             </div>
         </div>
-    </footer>
+
+        <div class="search-box" id="vaccine-search-box">
+            <div class="search-keyword-box">
+                <input class="search-input" id="vaccine-input" type="text" placeholder="请输入vaccine">
+                <button class="search-button" id="vaccine-search">搜索</button>
+            </div>
+            <div class="search-result-box" id="vaccine-search-result">
+                <ul id="vaccine-result-list">
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Footer-->
+        <footer class="footer bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; VaccineAbout 2023. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 </body>
 
 </html>
