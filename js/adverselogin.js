@@ -32,6 +32,10 @@ function login(username1, password1) {
             } else {
                 location.href = "../adverse.html"
             }
+        },
+        error:function(error){
+            alert(error.responseJSON.message)
+            console.log(error.responseJSON.message)  
         }
         
     })

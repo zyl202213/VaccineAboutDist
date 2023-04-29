@@ -22,15 +22,16 @@ function register(username2,password2){
         datatype: "json",
         success: function (json) {
             console.log(json.message)
-            alert(data.message)
-            if (data.code === -1) {
+            alert(json.message)
+            if (json.code === -1) {
                 console.log("用户已存在！")
             } else {
                 location.href = "../adverselogin.html"
             }
         },
         error:function(error){
-            alert(error.message)
+            alert(error.responseJSON.message)
+            console.log(error.responseJSON.message)  //unfortunately, this is not working.
         }
     })
 }
