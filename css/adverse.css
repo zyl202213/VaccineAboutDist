@@ -162,4 +162,21 @@ padding: 5px;
     background-color: rgb(180, 180, 180);
 }
 
+#register{
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 4px;
+    margin-right: 40px;
+    background-color: #4CAF50;
+    padding: 5px;
+    width: 60px;
+    text-align: center;
+  	
+}
+#register:hover{
+
+    background-color: black;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
 

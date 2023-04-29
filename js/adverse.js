@@ -2,6 +2,11 @@
 $(function () {
     console.log("first log")
     loadVaccine()
+
+$("#register").click(function(){
+    console.log("111111111")
+})
+
     $(".a6").click(function () {
         inquireVaccine("")
     })
