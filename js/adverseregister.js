@@ -9,9 +9,22 @@ $(function () {
         }
         register(date.username,date.password)
 
+})
+ var eye = document.getElementById("eye");
+var pwd = document.getElementById("pwd");
+var flag = 0;
+eye.onclick = function () {
+    console.log(11199)
+    if (flag == 0) {
+        pwd.type = 'test'
+        eye.src = '../img/eye-solid.jpg'
+        flag = 1;
+    } else {
+        pwd.type = 'password'
+        eye.src = '../img/eye-slash-solid.jpg'
+        flag = 0;
+    }
 }
-
-    )
     })
 
 //用户注册

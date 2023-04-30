@@ -13,8 +13,23 @@ $(function () {
         }
         login(date.username, date.password)
 
-    }
-    )
+    })
+        var eye = document.getElementById("eye");
+        var pwd = document.getElementById("pwd");
+        var flag = 0;
+        eye.onclick = function () {
+            console.log(11199)
+            if (flag == 0) {
+                pwd.type = 'test'
+                eye.src = '../img/eye-solid.jpg'
+                flag = 1;
+            } else {
+                pwd.type = 'password'
+                eye.src = '../img/eye-slash-solid.jpg'
+                flag = 0;
+            }
+        }
+    
 })
 
 //用户登录
@@ -23,7 +38,7 @@ function login(username1, password1) {
         url: 'http://43.140.194.248/api/user/login?username=' + username1 + '&password=' + password1,
         type: "post",
         datatype: "json",
-        
+
         success: function (data) {
             console.log(data)
             alert(data.message)
@@ -33,11 +48,11 @@ function login(username1, password1) {
                 location.href = "../adverse.html"
             }
         },
-        error:function(error){
+        error: function (error) {
             alert(error.responseJSON.message)
-            console.log(error.responseJSON.message)  
+            console.log(error.responseJSON.message)
         }
-        
+
     })
 }
 //用户列表
